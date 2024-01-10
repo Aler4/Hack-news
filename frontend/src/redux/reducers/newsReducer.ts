@@ -1,21 +1,15 @@
 import {ActiveStory, IState, TAction} from "../../types";
 import {ADD_ANSWERS, ADD_COLOROS, ADD_NEWS, ADD_STORY, CHANGE_LOAD} from "../actions";
 import {checkAnswers} from "../../helpers/checkAnswers";
-import {addColors} from "../../helpers/addColors";
+import {createDate} from "../../helpers/createDate";
 
 const initialState: IState = {
     stories: [],
-    activeStory: {
-        story: {},
-        comments: []
-    },
+    activeStory: {},
     answers: [],
     isError: false,
     isLoad: false,
-    avatars: {
-        'stras': 'asdas',
-        'erwer': 'dasdas',
-    }
+    time: createDate()
 }
 
 export const newsReducer = (state = initialState, action: TAction) => {
@@ -23,6 +17,7 @@ export const newsReducer = (state = initialState, action: TAction) => {
         case ADD_NEWS :
             return {
                 ...state,
+                time: createDate(),
                 stories: action.data,
             }
         case ADD_STORY :
@@ -30,15 +25,10 @@ export const newsReducer = (state = initialState, action: TAction) => {
                 ...state,
                 activeStory: action.data,
             }
-        case ADD_COLOROS :
-            return {
-                ...state,
-                avatars: addColors((state.activeStory as ActiveStory))
-            }
         case CHANGE_LOAD :
             return {
                 ...state,
-                isLoad: action.data,
+                isLoad: state.isLoad,
             }
         case ADD_ANSWERS :
             return {

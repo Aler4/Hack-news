@@ -7,7 +7,7 @@ import {Story} from "../../types";
 import {getStoryThunk} from "../../redux/thunks";
 import {addAnswers} from "../../redux/actions";
 import {useDispatch, useSelector} from "react-redux";
-import {answersSelector, avatarSelector} from "../../redux/selectors";
+import {answersSelector} from "../../redux/selectors";
 import {Comments} from "../commentTree";
 
 export const CommentCard: FC<{story: Story,getAnwsers: (id: number | string) => void}> = ({story,getAnwsers}) => {

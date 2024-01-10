@@ -1,5 +1,5 @@
 import {FC, useEffect, useState} from 'react';
-import {ActiveStory, Story} from "../../types";
+import {ActiveStory} from "../../types";
 import {
     Avatar,
     Card,
@@ -10,11 +10,7 @@ import {
     ListItemText,
     Typography
 } from "@mui/material";
-import CommentIcon from '@mui/icons-material/Comment';
 import {convertDate} from "../../helpers/converDate";
-import {useSelector} from "react-redux";
-import {avatarSelector, storySelector} from "../../redux/selectors";
-import {createRandomColor} from "../../helpers/randomColor";
 import {KeyboardArrowDown} from "@mui/icons-material";
 import {Comments} from "../commentTree";
 
@@ -26,7 +22,6 @@ type TProps = {
 export const StoryPreview:FC<TProps> = ({data}) => {
     const [content,setContent] = useState(data);
     const [open, setOpen] = useState(false);
-    const avatars = useSelector(avatarSelector.bind(this, data.story.id));
 
     useEffect(() => {
         setContent(data)
@@ -34,7 +29,7 @@ export const StoryPreview:FC<TProps> = ({data}) => {
     return (
         <Card>
             <CardHeader style={{textAlign: 'start'}} avatar={
-                <Avatar sx={{bgcolor: avatars ? `${avatars}` : 'grey'}} arial-label="recipe">
+                <Avatar sx={{bgcolor: 'grey'}} arial-label="recipe">
                     {(content.story.by as string)[0].toUpperCase()}
                 </Avatar>
             }

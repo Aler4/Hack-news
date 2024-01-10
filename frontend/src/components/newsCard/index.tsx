@@ -1,7 +1,9 @@
 import {Card, Table, TableBody, TableContainer, TableHead, TableRow, Typography} from '@mui/material';
-import {FC} from "react";
+import {FC, useState} from "react";
 import {NewsRow} from "../newsRow";
 import {convertDate} from "../../helpers/converDate";
+import {useSelector} from "react-redux";
+import {loadSelector} from "../../redux/selectors";
 
 export type TProps = {
     title: string | undefined,

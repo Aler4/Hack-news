@@ -20,16 +20,11 @@ export type ActiveStory = {
 }
 export interface IState {
     stories: Story[] | [],
-    activeStory: ActiveStory | {
-        story: {},
-        comments: []
-    },
+    activeStory: ActiveStory | {},
     answers: Story[] | [],
     isError: boolean,
     isLoad: boolean,
-    avatars?: {
-        [key: string]: string,
-    }
+    time?: string,
 }
 
 export type TAction = {data: any, type: string};

@@ -10,7 +10,6 @@ export const getStoriesThunk = (action: (data: Story[] | Story) => TAction) : an
             headers: {
                 'Content-Type': 'application/json'
             }
-        })
-            .then(res => dispatch(action(res.data))).finally(() => changeLoad(false));
+        }).then(res => dispatch(action(res.data))).finally(() => dispatch(changeLoad(false)));
     }
 }

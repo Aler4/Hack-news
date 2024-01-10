@@ -4,9 +4,9 @@
   "description": " ",
   "main": "index.js",
   "scripts": {
-    "start": "node backend/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Danylenko V.",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": " https://github.com/Aler4/Hack-news.git"
 }

@@ -13,6 +13,6 @@ export const getStoryThunk = (id: string | number,action: (data: Story[] | Story
                 'Content-Type': 'application/json'
             }
         })
-      .then(res => dispatch(action(res.data))).finally(() => {if(load){return dispatch(changeLoad(false))}});
+      .then(res => dispatch(action(res.data))).finally(() => {if(load){dispatch(changeLoad(false))}});
     }
 }
